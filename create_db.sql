@@ -1,15 +1,18 @@
 -- Created by Redgate Data Modeler (https://datamodeler.redgate-platform.com)
--- Last modification date: 2025-11-24 02:01:14.361
+-- Last modification date: 2025-11-24 02:17:27.256
+
+CREATE DATABASE IF NOT EXISTS db_newe_p2;
+USE db_newe_p2;
 
 -- tables
 -- Table: agendamento_cliente
 CREATE TABLE agendamento_cliente (
     id int  NOT NULL,
+    clienteId int  NOT NULL,
     titulo varchar(50)  NOT NULL,
     dataAgendamento datetime  NOT NULL,
     descricao varchar(500)  NOT NULL,
     localizacao varchar(300)  NOT NULL,
-    cliente_Id int  NOT NULL,
     CONSTRAINT agendamento_cliente_pk PRIMARY KEY (id)
 );
 
@@ -47,7 +50,6 @@ CREATE TABLE cotacao (
     caminho_arquivo_pdf varchar(255)  NULL,
     observacoes_internas Text  NOT NULL,
     detalhes_internas Text  NOT NULL,
-    cliente_Id int  NOT NULL,
     CONSTRAINT cotacao_pk PRIMARY KEY (id)
 );
 
@@ -88,10 +90,8 @@ CREATE TABLE evento_resposta (
 -- Table: registro_cliente
 CREATE TABLE registro_cliente (
     id int  NOT NULL,
-    cliente_categoria_id int  NOT NULL,
-    cliente_Id int  NOT NULL,
-    clienteId int  NOT NULL,
     categoriaId int  NOT NULL,
+    clienteId int  NOT NULL,
     dataRegistro date  NOT NULL,
     observacao varchar(500)  NOT NULL,
     CONSTRAINT registro_cliente_pk PRIMARY KEY (id)
@@ -100,15 +100,13 @@ CREATE TABLE registro_cliente (
 -- Table: tarefas
 CREATE TABLE tarefas (
     id int  NOT NULL,
+    cliente_Id int  NOT NULL,
+    vendedor_id int  NOT NULL,
     titulo varchar(255)  NOT NULL,
     data datetime  NOT NULL,
     status Enum('PENDENTE','CONCLUIDA','CANCELADA')  NOT NULL,
     tipo Enum('LIGACAO','EMAIL','VISITA','REUNIAO','OUTRO')  NOT NULL,
     descricao Text  NOT NULL,
-    cliente_id int  NOT NULL,
-    vendedor_id int  NOT NULL,
-    cliente_Id int  NOT NULL,
-    usuario_id int  NOT NULL,
     CONSTRAINT tarefas_pk PRIMARY KEY (id)
 );
 
@@ -130,23 +128,23 @@ CREATE TABLE usuario (
 -- Table: usuario_local
 CREATE TABLE usuario_local (
     id int  NOT NULL,
+    usuario_id int  NOT NULL,
     local Enum('REMOTO','PRESENCIAL')  NOT NULL,
     data date  NOT NULL,
-    usuario_id int  NOT NULL,
     CONSTRAINT usuario_local_pk PRIMARY KEY (id)
 );
 
 -- foreign keys
 -- Reference: agendamento_cliente_cliente (table: agendamento_cliente)
-ALTER TABLE agendamento_cliente ADD CONSTRAINT agendamento_cliente_cliente FOREIGN KEY agendamento_cliente_cliente (cliente_Id)
+ALTER TABLE agendamento_cliente ADD CONSTRAINT agendamento_cliente_cliente FOREIGN KEY agendamento_cliente_cliente (clienteId)
     REFERENCES cliente (Id);
 
 -- Reference: cliente_association_1 (table: registro_cliente)
-ALTER TABLE registro_cliente ADD CONSTRAINT cliente_association_1 FOREIGN KEY cliente_association_1 (cliente_Id)
+ALTER TABLE registro_cliente ADD CONSTRAINT cliente_association_1 FOREIGN KEY cliente_association_1 (clienteId)
     REFERENCES cliente (Id);
 
 -- Reference: cliente_categoria_association_1 (table: registro_cliente)
-ALTER TABLE registro_cliente ADD CONSTRAINT cliente_categoria_association_1 FOREIGN KEY cliente_categoria_association_1 (cliente_categoria_id)
+ALTER TABLE registro_cliente ADD CONSTRAINT cliente_categoria_association_1 FOREIGN KEY cliente_categoria_association_1 (categoriaId)
     REFERENCES cliente_categoria (id);
 
 -- Reference: cliente_tarefas (table: tarefas)
@@ -154,7 +152,7 @@ ALTER TABLE tarefas ADD CONSTRAINT cliente_tarefas FOREIGN KEY cliente_tarefas (
     REFERENCES cliente (Id);
 
 -- Reference: cotacao_cliente (table: cotacao)
-ALTER TABLE cotacao ADD CONSTRAINT cotacao_cliente FOREIGN KEY cotacao_cliente (cliente_Id)
+ALTER TABLE cotacao ADD CONSTRAINT cotacao_cliente FOREIGN KEY cotacao_cliente (id_cliente)
     REFERENCES cliente (Id);
 
 -- Reference: evento_association_1 (table: evento_convidado)
@@ -178,7 +176,7 @@ ALTER TABLE usuario_local ADD CONSTRAINT usuario_local_usuario FOREIGN KEY usuar
     REFERENCES usuario (id);
 
 -- Reference: usuario_tarefas (table: tarefas)
-ALTER TABLE tarefas ADD CONSTRAINT usuario_tarefas FOREIGN KEY usuario_tarefas (usuario_id)
+ALTER TABLE tarefas ADD CONSTRAINT usuario_tarefas FOREIGN KEY usuario_tarefas (vendedor_id)
     REFERENCES usuario (id);
 
 -- End of file.
