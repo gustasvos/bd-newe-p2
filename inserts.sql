@@ -105,7 +105,6 @@ insert into evento (titulo, descricao, dataHora, localizacao) values ('Dia da Lo
 insert into evento (titulo, descricao, dataHora, localizacao) values ('Encontro Logístico', 'Workshop de Inovação', '2006-09-12 09:00:00', '7 Barnett Way');
 
 -- cliente
-Preview
 insert into cliente (CNPJ, NomeFantasia, PrazoFaturamento, ContatoResponsavel, EmailResponsavel, CNAE, descricaoCNAE, colaboradorId) values ('27894567000190', 'Blogtag', '2026-08-08', 'Claudelle Bassilashvili', 'cbassilashvili0@wiley.com', 5611201, 'Restaurantes e similares', 6);
 insert into cliente (CNPJ, NomeFantasia, PrazoFaturamento, ContatoResponsavel, EmailResponsavel, CNAE, descricaoCNAE, colaboradorId) values ('55667788000145', 'Pixoboo', '2025-04-13', 'Karyn Thyer', 'kthyer1@census.gov', 4930202, 'Desenvolvimento de programas de computador sob encomenda', 12);
 insert into cliente (CNPJ, NomeFantasia, PrazoFaturamento, ContatoResponsavel, EmailResponsavel, CNAE, descricaoCNAE, colaboradorId) values ('00456789000123', 'Einti', '2025-03-05', 'Timotheus Wildbore', 'twildbore2@ow.ly', 4711301, 'Desenvolvimento de programas de computador sob encomenda', 7);
@@ -156,3 +155,64 @@ insert into cliente (CNPJ, NomeFantasia, PrazoFaturamento, ContatoResponsavel, E
 insert into cliente (CNPJ, NomeFantasia, PrazoFaturamento, ContatoResponsavel, EmailResponsavel, CNAE, descricaoCNAE, colaboradorId) values ('55667788000145', 'Yoveo', '2025-11-26', 'Monika Lonsbrough', 'mlonsbrough1b@odnoklassniki.ru', 4711301, 'Atividades de atendimento hospitalar', 29);
 insert into cliente (CNPJ, NomeFantasia, PrazoFaturamento, ContatoResponsavel, EmailResponsavel, CNAE, descricaoCNAE, colaboradorId) values ('27894567000190', 'Edgeblab', '2025-02-17', 'Dewey Fay', 'dfay1c@ft.com', 4930202, 'Atividades de atendimento hospitalar', 4);
 insert into cliente (CNPJ, NomeFantasia, PrazoFaturamento, ContatoResponsavel, EmailResponsavel, CNAE, descricaoCNAE, colaboradorId) values ('55667788000145', 'Dynabox', '2026-12-22', 'Hildegaard Ruggiero', 'hruggiero1d@wufoo.com', 4711301, 'Comércio varejista de mercadorias em geral', 12);
+
+
+-- cliente_categoria
+insert into cliente_categoria (categoria) values ('Prospect');
+insert into cliente_categoria (categoria) values ('Inicial');
+insert into cliente_categoria (categoria) values ('Potencial');
+insert into cliente_categoria (categoria) values ('Manutencao');
+insert into cliente_categoria (categoria) values ('Em negociacao');
+insert into cliente_categoria (categoria) values ('Follow Up');
+
+-- usuario_local
+insert into usuario_local (usuario_id, local, data) values (24, 'Remoto', '2025-06-10');
+insert into usuario_local (usuario_id, local, data) values (8, 'Presencial', '2025-05-15');
+insert into usuario_local (usuario_id, local, data) values (25, 'Remoto', '2025-07-13');
+insert into usuario_local (usuario_id, local, data) values (42, 'Remoto', '2025-07-29');
+insert into usuario_local (usuario_id, local, data) values (32, 'Remoto', '2026-01-03');
+insert into usuario_local (usuario_id, local, data) values (13, 'Presencial', '2026-09-03');
+insert into usuario_local (usuario_id, local, data) values (49, 'Remoto', '2026-05-14');
+insert into usuario_local (usuario_id, local, data) values (29, 'Remoto', '2026-03-12');
+insert into usuario_local (usuario_id, local, data) values (6, 'Presencial', '2025-07-07');
+insert into usuario_local (usuario_id, local, data) values (18, 'Remoto', '2026-04-07');
+insert into usuario_local (usuario_id, local, data) values (30, 'Presencial', '2025-08-22');
+insert into usuario_local (usuario_id, local, data) values (41, 'Remoto', '2025-04-22');
+insert into usuario_local (usuario_id, local, data) values (44, 'Remoto', '2026-06-01');
+insert into usuario_local (usuario_id, local, data) values (34, 'Remoto', '2025-04-12');
+insert into usuario_local (usuario_id, local, data) values (20, 'Presencial', '2025-10-28');
+insert into usuario_local (usuario_id, local, data) values (31, 'Remoto', '2025-11-25');
+insert into usuario_local (usuario_id, local, data) values (14, 'Remoto', '2025-05-16');
+insert into usuario_local (usuario_id, local, data) values (6, 'Presencial', '2025-12-30');
+insert into usuario_local (usuario_id, local, data) values (43, 'Presencial', '2026-04-23');
+insert into usuario_local (usuario_id, local, data) values (20, 'Remoto', '2025-11-16');
+insert into usuario_local (usuario_id, local, data) values (2, 'Remoto', '2026-11-08');
+insert into usuario_local (usuario_id, local, data) values (8, 'Presencial', '2025-12-06');
+insert into usuario_local (usuario_id, local, data) values (21, 'Presencial', '2025-03-28');
+insert into usuario_local (usuario_id, local, data) values (36, 'Presencial', '2026-08-30');
+insert into usuario_local (usuario_id, local, data) values (10, 'Remoto', '2026-01-07');
+insert into usuario_local (usuario_id, local, data) values (17, 'Presencial', '2025-10-13');
+insert into usuario_local (usuario_id, local, data) values (47, 'Remoto', '2026-02-14');
+insert into usuario_local (usuario_id, local, data) values (33, 'Remoto', '2025-12-10');
+insert into usuario_local (usuario_id, local, data) values (30, 'Presencial', '2026-08-09');
+insert into usuario_local (usuario_id, local, data) values (7, 'Remoto', '2025-03-08');
+insert into usuario_local (usuario_id, local, data) values (28, 'Remoto', '2025-04-02');
+insert into usuario_local (usuario_id, local, data) values (11, 'Remoto', '2026-05-28');
+insert into usuario_local (usuario_id, local, data) values (45, 'Presencial', '2025-11-30');
+insert into usuario_local (usuario_id, local, data) values (14, 'Remoto', '2026-05-20');
+insert into usuario_local (usuario_id, local, data) values (14, 'Presencial', '2025-03-06');
+insert into usuario_local (usuario_id, local, data) values (17, 'Remoto', '2025-10-11');
+insert into usuario_local (usuario_id, local, data) values (11, 'Remoto', '2025-10-26');
+insert into usuario_local (usuario_id, local, data) values (31, 'Presencial', '2025-12-21');
+insert into usuario_local (usuario_id, local, data) values (8, 'Presencial', '2025-10-22');
+insert into usuario_local (usuario_id, local, data) values (46, 'Presencial', '2025-08-03');
+insert into usuario_local (usuario_id, local, data) values (33, 'Remoto', '2026-09-10');
+insert into usuario_local (usuario_id, local, data) values (35, 'Presencial', '2026-11-01');
+insert into usuario_local (usuario_id, local, data) values (9, 'Presencial', '2026-02-03');
+insert into usuario_local (usuario_id, local, data) values (19, 'Presencial', '2025-03-21');
+insert into usuario_local (usuario_id, local, data) values (17, 'Remoto', '2025-09-30');
+insert into usuario_local (usuario_id, local, data) values (18, 'Presencial', '2025-09-06');
+insert into usuario_local (usuario_id, local, data) values (7, 'Presencial', '2026-08-23');
+insert into usuario_local (usuario_id, local, data) values (10, 'Remoto', '2025-07-17');
+insert into usuario_local (usuario_id, local, data) values (6, 'Remoto', '2025-06-23');
+insert into usuario_local (usuario_id, local, data) values (7, 'Presencial', '2026-08-16');
