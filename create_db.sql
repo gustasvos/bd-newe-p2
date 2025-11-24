@@ -45,11 +45,11 @@ CREATE TABLE cotacao (
     data_validade date  NOT NULL,
     status varchar(50)  NOT NULL,
     valor_total decimal(10,2)  NOT NULL,
-    detalhes_frete Text  NOT NULL,
-    motivo_recusa Text  NOT NULL,
-    caminho_arquivo_pdf varchar(255)  NULL,
-    observacoes_internas Text  NOT NULL,
-    detalhes_internas Text  NOT NULL,
+    detalhes_frete Text,
+    motivo_recusa Text,
+    caminho_arquivo_pdf varchar(255) NULL DEFAULT '',
+    observacoes_internas Text,
+    detalhes_internas Text,
     CONSTRAINT cotacao_pk PRIMARY KEY (id)
 );
 
@@ -69,7 +69,7 @@ CREATE TABLE evento_convidado (
     usuario_id int  NOT NULL,
     evento_id int  NOT NULL,
     status Enum('Pendente','Confirmado','Recusado')  NOT NULL,
-    motivo varchar(1024)  NOT NULL,
+    motivo varchar(1024) NULL,
     criadoEm datetime  NOT NULL,
     CONSTRAINT evento_convidado_pk PRIMARY KEY (id)
 );
@@ -93,20 +93,20 @@ CREATE TABLE registro_cliente (
     categoriaId int  NOT NULL,
     clienteId int  NOT NULL,
     dataRegistro date  NOT NULL,
-    observacao varchar(500)  NOT NULL,
+    observacao varchar(500)  NOT NULL DEFAULT 'Novo contato registrado',
     CONSTRAINT registro_cliente_pk PRIMARY KEY (id)
 );
 
 -- Table: tarefas
 CREATE TABLE tarefas (
     id int  NOT NULL AUTO_INCREMENT,
-    cliente_Id int  NOT NULL,
+    cliente_Id int,
     vendedor_id int  NOT NULL,
     titulo varchar(255)  NOT NULL,
     data datetime  NOT NULL,
     status Enum('Pendente','Concluida','Cancelada')  NOT NULL,
     tipo Enum('Ligacao','Email','Visita','Reuniao','Outro')  NOT NULL,
-    descricao Text  NOT NULL,
+    descricao Text,
     CONSTRAINT tarefas_pk PRIMARY KEY (id)
 );
 
@@ -114,7 +114,7 @@ CREATE TABLE tarefas (
 CREATE TABLE usuario (
     id int  NOT NULL AUTO_INCREMENT,
     nome varchar(255)  NOT NULL,
-    cpf varchar(11)  NOT NULL,
+    cpf varchar(11)  NOT NULL UNIQUE,
     genero Enum('M','F','O')  NOT NULL,
     dataNascimento date  NOT NULL,
     cargo varchar(100)  NOT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE usuario_local (
     id int  NOT NULL AUTO_INCREMENT,
     usuario_id int  NOT NULL,
     local Enum('Remoto','Presencial')  NOT NULL,
-    data date  NOT NULL,
+    data date,
     CONSTRAINT usuario_local_pk PRIMARY KEY (id)
 );
 
