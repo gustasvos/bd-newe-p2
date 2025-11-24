@@ -33,7 +33,7 @@ CREATE TABLE cliente (
 -- Table: cliente_categoria
 CREATE TABLE cliente_categoria (
     id int  NOT NULL AUTO_INCREMENT,
-    categoria Enum('PROSPECT','INICIAL','POTENCIAL','MANUTENCAO','EM_NEGOCIACAO','FOLLOW_UP')  NOT NULL,
+    categoria Enum('Prospect','Inicial','Potencial','Manutencao','Em Negociacao','Follow Up')  NOT NULL,
     CONSTRAINT cliente_categoria_pk PRIMARY KEY (id)
 );
 
@@ -68,7 +68,7 @@ CREATE TABLE evento_convidado (
     id int  NOT NULL AUTO_INCREMENT,
     usuario_id int  NOT NULL,
     evento_id int  NOT NULL,
-    status Enum('PENDENTE','CONFIRMADO','RECUSADO')  NOT NULL,
+    status Enum('Pendente','Confirmado','Recusado')  NOT NULL,
     motivo varchar(1024)  NOT NULL,
     criadoEm datetime  NOT NULL,
     CONSTRAINT evento_convidado_pk PRIMARY KEY (id)
@@ -104,8 +104,8 @@ CREATE TABLE tarefas (
     vendedor_id int  NOT NULL,
     titulo varchar(255)  NOT NULL,
     data datetime  NOT NULL,
-    status Enum('PENDENTE','CONCLUIDA','CANCELADA')  NOT NULL,
-    tipo Enum('LIGACAO','EMAIL','VISITA','REUNIAO','OUTRO')  NOT NULL,
+    status Enum('Pendente','Concluida','Cancelada')  NOT NULL,
+    tipo Enum('Ligacao','Email','Visita','Reuniao','Outro')  NOT NULL,
     descricao Text  NOT NULL,
     CONSTRAINT tarefas_pk PRIMARY KEY (id)
 );
@@ -129,7 +129,7 @@ CREATE TABLE usuario (
 CREATE TABLE usuario_local (
     id int  NOT NULL AUTO_INCREMENT,
     usuario_id int  NOT NULL,
-    local Enum('REMOTO','PRESENCIAL')  NOT NULL,
+    local Enum('Remoto','Presencial')  NOT NULL,
     data date  NOT NULL,
     CONSTRAINT usuario_local_pk PRIMARY KEY (id)
 );
