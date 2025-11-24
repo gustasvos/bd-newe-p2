@@ -7,7 +7,7 @@ USE db_newe_p2;
 -- tables
 -- Table: agendamento_cliente
 CREATE TABLE agendamento_cliente (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     clienteId int  NOT NULL,
     titulo varchar(50)  NOT NULL,
     dataAgendamento datetime  NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE agendamento_cliente (
 
 -- Table: cliente
 CREATE TABLE cliente (
-    Id int  NOT NULL,
+    Id int  NOT NULL AUTO_INCREMENT,
     CNPJ varchar(14)  NOT NULL,
     NomeFantasia varchar(255)  NOT NULL,
     PrazoFaturamento datetime  NOT NULL,
@@ -32,14 +32,14 @@ CREATE TABLE cliente (
 
 -- Table: cliente_categoria
 CREATE TABLE cliente_categoria (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     categoria Enum('PROSPECT','INICIAL','POTENCIAL','MANUTENCAO','EM_NEGOCIACAO','FOLLOW_UP')  NOT NULL,
     CONSTRAINT cliente_categoria_pk PRIMARY KEY (id)
 );
 
 -- Table: cotacao
 CREATE TABLE cotacao (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     id_cliente int  NOT NULL,
     data_criacao datetime  NOT NULL,
     data_validade date  NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE cotacao (
 
 -- Table: evento
 CREATE TABLE evento (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     titulo varchar(255)  NOT NULL,
     descricao Text  NOT NULL,
     dataHora date  NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE evento (
 
 -- Table: evento_convidado
 CREATE TABLE evento_convidado (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     usuario_id int  NOT NULL,
     evento_id int  NOT NULL,
     status Enum('PENDENTE','CONFIRMADO','RECUSADO')  NOT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE evento_convidado (
 
 -- Table: evento_resposta
 CREATE TABLE evento_resposta (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     evento_id int  NOT NULL,
     usuario_id int  NOT NULL,
     tituloEvento varchar(255)  NOT NULL,
@@ -89,7 +89,7 @@ CREATE TABLE evento_resposta (
 
 -- Table: registro_cliente
 CREATE TABLE registro_cliente (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     categoriaId int  NOT NULL,
     clienteId int  NOT NULL,
     dataRegistro date  NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE registro_cliente (
 
 -- Table: tarefas
 CREATE TABLE tarefas (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     cliente_Id int  NOT NULL,
     vendedor_id int  NOT NULL,
     titulo varchar(255)  NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE tarefas (
 
 -- Table: usuario
 CREATE TABLE usuario (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     nome varchar(255)  NOT NULL,
     cpf varchar(11)  NOT NULL,
     genero Enum('M','F','O')  NOT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE usuario (
 
 -- Table: usuario_local
 CREATE TABLE usuario_local (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     usuario_id int  NOT NULL,
     local Enum('REMOTO','PRESENCIAL')  NOT NULL,
     data date  NOT NULL,
